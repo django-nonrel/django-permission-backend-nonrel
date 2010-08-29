@@ -1,6 +1,6 @@
 from copy import copy
 
-from djangotoolbox.auth.models import UserPermissionList, GroupPermissionList
+from .models import UserPermissionList, GroupPermissionList
 
 
 def add_perm_to(obj, list_cls, filter):

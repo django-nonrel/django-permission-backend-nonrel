@@ -1,6 +1,7 @@
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
-from djangotoolbox.auth.models import UserPermissionList, GroupPermissionList
+
+from models import UserPermissionList, GroupPermissionList
 
 
 class NonrelPermissionBackend(ModelBackend):

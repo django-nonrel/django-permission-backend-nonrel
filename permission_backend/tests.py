@@ -2,9 +2,10 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User, Group, Permission, AnonymousUser
 from django.contrib.contenttypes.models import ContentType
 from django.test import TestCase
-from djangotoolbox.auth.models import UserPermissionList, \
+
+from .models import UserPermissionList, \
      GroupPermissionList
-from djangotoolbox.auth.utils import add_permission_to_user, \
+from .utils import add_permission_to_user, \
      add_user_to_group, add_permission_to_group, update_permissions_user, update_user_groups, update_permissions_group
 
 
