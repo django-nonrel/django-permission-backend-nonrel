@@ -134,8 +134,6 @@ try:
 except NotRegistered:
     pass
 
-backend_name = 'permission_backend.backends.NonrelPermissionBackend'
-if backend_name in settings.AUTHENTICATION_BACKENDS:
-    admin.site.register(User, NonrelPermissionCustomUserAdmin)
-    admin.site.register(Permission, PermissionAdmin)
-    admin.site.register(Group, CustomGroupAdmin)
+admin.site.register(User, NonrelPermissionCustomUserAdmin)
+admin.site.register(Permission, PermissionAdmin)
+admin.site.register(Group, CustomGroupAdmin)
