@@ -99,7 +99,7 @@ class GroupForm(forms.ModelForm):
         try:
             current_perm_list = GroupPermissionList.objects.get(
                 group=kwargs['instance'])
-            self.fields['permissions'].initial = current_perm_list.fk_list
+            self.fields['permissions'].initial = current_perm_list.permission_fk_list
         except (GroupPermissionList.DoesNotExist, KeyError):
             self.fields['permissions'].initial = []
         
