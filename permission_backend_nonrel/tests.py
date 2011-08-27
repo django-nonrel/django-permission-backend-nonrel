@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User, Group, Permission, AnonymousUser
 from django.contrib.contenttypes.models import ContentType
@@ -11,7 +12,14 @@ from .utils import add_permission_to_user, \
 
 class BackendTest(TestCase):
     def setUp(self):
+        self.old_auth_backends = settings.AUTHENTICATION_BACKENDS
+        settings.AUTHENTICATION_BACKENDS = (
+            'permission_backend_nonrel.backends.NonrelPermissionBackend',
+           )
         User.objects.create_user('test', 'test@example.com', 'test')
+
+    def tearDown(self):
+        settings.AUTHENTICATION_BACKENDS = self.old_auth_backends
 
     def test_update_permissions_user(self):
         content_type = ContentType.objects.get_for_model(User)
