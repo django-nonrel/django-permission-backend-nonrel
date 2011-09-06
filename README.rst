@@ -32,7 +32,7 @@ Installation
   Permission and groups can be assigned and modified via Django's admin interface:
 
 
-  .. figure:: http://floooofiles.appspot.com/image/6001/raw/
+  .. figure:: http://floooofiles.appspot.com/serve/files/admin.jpeg/
       :scale: 50 %
       :alt: Django-nonrel admin with user_permissions and groups 
 
