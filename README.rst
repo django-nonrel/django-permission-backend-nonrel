@@ -9,7 +9,7 @@ Installation
 
 * Get the code form Github:
 
-    git clonehttps://fhahn@github.com/django-nonrel/django-permission-backend-nonrel.git
+    git clone https://fhahn@github.com/django-nonrel/django-permission-backend-nonrel.git
 
 * add **permission_backend_nonrel.backends.NonrelPermissionBackend** to your *AUTHENTICATION_BACKENDS*
   and **permission_backend_nonrel** to your *INSTALLED_APPS*
