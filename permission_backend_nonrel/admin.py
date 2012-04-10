@@ -1,9 +1,11 @@
 from django import forms
 from django.conf import settings
 from django.contrib import admin
+from django.utils.translation import ugettext
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.admin.sites import NotRegistered
 from django.contrib.auth.models import User, Group, Permission
+from django.contrib.admin.widgets import FilteredSelectMultiple
 
 from .models import UserPermissionList, GroupPermissionList
 from .utils import update_permissions_user, \
@@ -85,7 +87,7 @@ class GroupForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(GroupForm, self).__init__(*args, **kwargs)
 
-        self.fields['permissions'] = forms.MultipleChoiceField(required=False)
+        self.fields['permissions'] = forms.MultipleChoiceField(required=False, widget=FilteredSelectMultiple(ugettext('Permissions'), False))
    
         permissions_objs = Permission.objects.all().order_by('name')
         choices = []
