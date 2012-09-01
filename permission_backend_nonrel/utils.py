@@ -7,6 +7,7 @@ def add_perm_to(obj, list_cls, filter):
     obj_list, created = list_cls.objects.get_or_create(**filter)
     obj_list.permission_list.append('%s.%s' % (obj.content_type.app_label,\
                                                obj.codename))
+    obj_list.permission_fk_list.append(obj.id)
     obj_list.save()
 
 def add_permission_to_user(perm, user):
