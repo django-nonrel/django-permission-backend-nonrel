@@ -6,7 +6,7 @@ from djangotoolbox.fields import ListField
 
 class UserPermissionList(models.Model):
     user = models.ForeignKey(User)
-    
+
     permission_list = ListField(models.CharField(max_length=64))
     permission_fk_list = ListField(models.CharField(max_length=32))
 
