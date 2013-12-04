@@ -21,7 +21,7 @@ setup(
     packages=find_packages(exclude=('tests','tests.*')),
     author='Florian Hahn',
     author_email='flo@fhahn.com',
-    url='https://github.com/fhahn/django-permission-backend-nonrel',
+    url='https://github.com/django-nonrel/django-permission-backend-nonrel',
     platforms=['any'],
     include_package_data=True,
     classifiers=CLASSIFIERS
