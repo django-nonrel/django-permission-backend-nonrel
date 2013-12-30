@@ -51,6 +51,7 @@ class NonrelPermissionUserForm(UserForm):
 
 class NonrelPermissionCustomUserAdmin(UserAdmin):
     form = NonrelPermissionUserForm
+    list_filter = ('is_staff', 'is_superuser', 'is_active')
 
     def save_model(self, request, obj, form, change):
         super(NonrelPermissionCustomUserAdmin, self).save_model(request, obj, form, change)
