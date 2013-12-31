@@ -16,7 +16,7 @@ for ver in ['2', '2.4', '2.5', '2.6', '2.7']:
 
 setup(
     name='permission-backend-nonrel',
-    version='0.1',
+    version='0.2',
     description='Django-nonrel authentication backend to support permissions and groups',
     packages=find_packages(exclude=('tests','tests.*')),
     author='Florian Hahn',
