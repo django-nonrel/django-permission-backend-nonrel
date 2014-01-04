@@ -1,5 +1,4 @@
 from django import forms
-from django.conf import settings
 from django.contrib import admin
 from django.utils.translation import ugettext
 from django.contrib.auth.admin import UserAdmin
@@ -86,7 +85,14 @@ class GroupForm(forms.ModelForm):
     permissions = forms.MultipleChoiceField(required=False)
 
     def __init__(self, *args, **kwargs):
+        # Temporarily exclude 'permissions' as it causes an
+        # unsupported query to be executed
+        original_exclude = self._meta.exclude
+        self._meta.exclude = ['permissions',] + (self._meta.exclude if self._meta.exclude else [])
+
         super(GroupForm, self).__init__(*args, **kwargs)
+
+        self._meta.exclude = original_exclude
 
         self.fields['permissions'] = forms.MultipleChoiceField(required=False, widget=FilteredSelectMultiple(ugettext('Permissions'), False))
 
