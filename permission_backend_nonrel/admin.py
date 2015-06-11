@@ -3,8 +3,11 @@ from django.contrib import admin
 from django.utils.translation import ugettext
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.admin.sites import NotRegistered
-from django.contrib.auth.models import User, Group, Permission
+from django.contrib.auth.models import Group, Permission
 from django.contrib.admin.widgets import FilteredSelectMultiple
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 from .models import UserPermissionList, GroupPermissionList
 from .utils import update_permissions_user, \
